@@ -1,0 +1,83 @@
+body{
+    background: #F56EB3;
+    background: -webkit-linear-gradient(0deg, #F56EB3 0%, #9b1348 100%);
+    background: linear-gradient(0deg, #F56EB3 0%, #9b1348 100%);
+    min-height: 100vh;
+    max-height: max-content;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#navbar{
+    text-align: center;
+    background: black;
+    padding: 1.3em;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.8s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.mid-sect{
+    width: 90%;
+    margin-top: 10em;
+    margin-bottom: 10em;
+    gap: 2em;
+}
+
+.me{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+    transition: all 0.8s ease;
+    opacity: 10%;
+    transform: translateY(100%);
+}
+.me span{
+    font-weight: bold;
+    transition: all 0.4s ease;
+}
+
+.me span a{
+    text-decoration: none;
+    color: gray;
+    transition: all 0.4s ease;
+}
+.me span:hover, .me span a:hover{
+    transform: scale(1.1);
+    color: white;
+}
+
+.main-data-table th, tr{
+    width: 12.5%;
+    text-align: center;
+    padding: 10px;
+}
+
+#searchDiv, #jsonDiv{
+    min-height: 30vh;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: all 0.8s ease;
+    padding: 20px;
+}
+
+#searchDiv{
+    transform: translateY(-20%);
+    opacity: 0;
+}
+
+#jsonDiv{
+    transform: translateY(20%);
+    opacity: 0;
+}
+
+#searchDiv:hover, #jsonDiv:hover{
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px white;
+}

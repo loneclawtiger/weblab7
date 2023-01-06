@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Angular Model | WSD LAB 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body onload="onloadAnimations()"  ng-app="myApp" ng-controller="myCtrl">
+<div class="container main-cont  d-flex flex-column justify-content-center align-items-center">
+    <div class="top-sect w-100" id="navbar">
+        <h1 class="text-uppercase text-light">Angular Model</h1>
+    </div>
+    <div class="mid-sect row justify-content-between">
+        <div class="col-lg-3 col-md-12 col-sm-12" id="searchDiv">
+            <h3 class="text-dark mt-4 text-uppercase font-weight-bold">Search</h3>
+            <div class="rowsField">
+                <div class="input-field mt-4">
+                    <label for="rows" class="form-check-label">Select no. of rows</label>
+                    <input type="number" name="rows" id="rows" class="form-control" min="0" max="10" value="1" ng-model="rows">
+                </div>
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="search" id="name" class="form-control" placeholder="Search By name..." ng-model="test.name">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="category" id="category" class="form-control" placeholder="Search By category..." ng-model="test.category">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Rating" id="Rating" class="form-control" placeholder="Search By Rating..." ng-model="test.Rating">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Gigs" id="Gigs" class="form-control" placeholder="Search By Gigs..." ng-model="test.Gigs">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Reviews" id="Reviews" class="form-control" placeholder="Search By Reviews..." ng-model="test.Reviews">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Price" id="Price" class="form-control" placeholder="Search By Price..." ng-model="test.Price">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Joined" id="Joined" class="form-control" placeholder="Search By Joined..." ng-model="test.Joined">
+            </div>
+            <div class="searchField mt-4 d-flex flex-column justify-content-center align-items-center">
+                <input type="text" name="Status" id="Status" class="form-control" placeholder="Search By Status..." ng-model="test.Status">
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12" id="jsonDiv">
+            <h3 class="text-dark font-weight-bold text-uppercase mt-4">Data</h3>
+            <div class="mt-4">
+                <table class="main-data-table table-hover table-responsive">
+                    <thead>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Rating</th>
+                        <th>Gigs</th>
+                        <th>Reviews</th>
+                        <th>Price</th>
+                        <th>Joined</th>
+                        <th>Status</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in data | filter: test | limitTo: rows | orderBy: 'Rating' ">
+                            <td>{{x.name | uppercase}}</td>
+                            <td>{{x.category}}</td>
+                            <td>{{x.Rating | addStar}}</td>
+                            <td>{{x.Gigs}}</td>
+                            <td>{{x.Reviews}}</td>
+                            <td>{{x.Price | addRup}}</td>
+                            <td>{{x.Joined}}</td>
+                            <td class="stat">{{x.Status | checkStat}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="me text-center" id="footer">
+    <span>Developed By: Hemant Dutta</span>
+    <span><a href="https://github.com/HemantDutta/WSD-LAB-7" target="_blank"><i class="fa-brands fa-github"></i></a></span>
+</div>
+<!--Scripts-->
+<script src="assets/js/jquery-3.6.0.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>
